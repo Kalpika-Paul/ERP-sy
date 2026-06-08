@@ -32,7 +32,7 @@ const InvoicePrint = ({ sale }) => {
             </svg>
           </div> */}
           <div>
-            <h2 className="m-0 fw-bold" style={{ color: colors.forest, letterSpacing: "-1px" }}>EASTERN MOBILE</h2>
+            <h2 className="m-0 fw-bold" style={{ color: colors.forest, letterSpacing: "-1px" }}>Company</h2>
             {/* <p className="m-0 small text-uppercase fw-bold" style={{ color: colors.accent, letterSpacing: "2px", fontSize: "10px" }}>
               Genuine Mobile Parts & Components
             </p> */}

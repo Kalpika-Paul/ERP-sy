@@ -64,7 +64,7 @@ const [password, setPassword] = useState("");
                     <Card.Title className="mb-4 text-center">
                         <div className="fs-6 fs-md-5">WELCOME TO</div>
                         <div className="fw-bold fs-4 fs-md-3">
-                            EASTERN MOBILE PORTAL
+                            Company PORTAL
                         </div>
                     </Card.Title>
 

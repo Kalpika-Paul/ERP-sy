@@ -11,7 +11,7 @@ export default function StockExchange() {
   const [branches] = useState([
     "Bashundhara City",
     "Jamuna Future Park",
-    "Eastern Mobile",
+    "Company",
   ]);
   const [destination, setDestination] = useState("");
   const [history, setHistory] = useState([]);

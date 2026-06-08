@@ -66,7 +66,7 @@ export default function Navbar() {
     >
       <Container fluid>
         <BSNavbar.Brand as={NavLink} to="/">
-          Eastern Mobile
+          Company
         </BSNavbar.Brand>
 
         <BSNavbar.Toggle aria-controls="navbarScroll" />

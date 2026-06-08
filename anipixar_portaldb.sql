@@ -62,7 +62,7 @@ INSERT INTO `customers` (`id`, `name`, `phone`, `address`, `created_at`, `update
 (19, 'sblhiads', '58734098572340', NULL, '2026-04-06 00:42:25', '2026-04-06 00:42:25'),
 (20, 'cmxvnldjsk', '4438723908', NULL, '2026-04-06 00:45:38', '2026-04-06 00:45:38'),
 (21, 'dasljhbdjsl', '489057389204758', NULL, '2026-04-06 00:46:58', '2026-04-06 00:46:58'),
-(22, 'eastern mobile', '0174594296', NULL, '2026-04-06 00:52:44', '2026-04-06 00:52:44'),
+(22, 'Company', '0174594296', NULL, '2026-04-06 00:52:44', '2026-04-06 00:52:44'),
 (23, 'dfiadslj', '3489370842', NULL, '2026-04-06 01:01:56', '2026-04-06 01:01:56'),
 (24, 'sdhfash', '328947328434', NULL, '2026-04-06 01:04:25', '2026-04-06 01:04:25'),
 (25, 'ayman', '2938129387912', 'lalbag', '2026-04-06 01:27:29', '2026-04-06 01:27:29'),
@@ -310,7 +310,7 @@ CREATE TABLE `purchases` (
 
 INSERT INTO `purchases` (`id`, `product_id`, `barcode`, `brand`, `model`, `price`, `color`, `variant`, `battery_health`, `branch`, `memo`, `month`, `supplier_name`, `contact_number`, `nid_number`, `condition`, `ram`, `rom`, `box`, `imei`, `quantity`, `available_stock`, `salesPrice`, `status`, `nid_image`, `memo_image`, `prepared_by`, `created_at`, `updated_at`) VALUES
 (43, 17, '20260902', 'Apple', NULL, 39500.00, 'White', 'India', '90', 'Bashundhara City', '8628', '2026-03-16', 'EM Center', '0173333333', '10000000001', 'Pre-Owned', '4GB', '128GB', 'Yes', '355160953062380', 1, 1, 42000.00, 'approved', 'purchases/NID/KvO8pRwH2bDuxm8MdRck.jpeg', 'purchases/Memo/yhj2HiJ5kqGtlMRd7ko0.jpeg', '1', '2026-03-16 05:57:09', '2026-03-16 05:57:46'),
-(44, 20, '20260903', 'Apple', NULL, 52500.00, 'Graphite', 'Japan', '88', 'Bashundhara City', '0255', '2026-03-16', 'Eastern Mobile', '01780623881', '6019189692', 'Pre-Owned', '4GB', '256GB', 'No', '354980618151190', 1, 0, 55000.00, 'approved', 'purchases/NID/BmY0bokuYudqyS4XHUgz.jpg', 'purchases/Memo/1H7D9iFE1W4SzPREQr9K.jpg', '1', '2026-03-16 06:02:30', '2026-03-16 07:52:25'),
+(44, 20, '20260903', 'Apple', NULL, 52500.00, 'Graphite', 'Japan', '88', 'Bashundhara City', '0255', '2026-03-16', 'Company', '01780623881', '6019189692', 'Pre-Owned', '4GB', '256GB', 'No', '354980618151190', 1, 0, 55000.00, 'approved', 'purchases/NID/BmY0bokuYudqyS4XHUgz.jpg', 'purchases/Memo/1H7D9iFE1W4SzPREQr9K.jpg', '1', '2026-03-16 06:02:30', '2026-03-16 07:52:25'),
 (45, 24, '20260904', 'Apple', NULL, 71500.00, 'Purple', 'Singapore', '91', 'Bashundhara City', '74584', '2026-03-16', 'EM Center', '0100000000', '10000000001', 'Pre-Owned', '6GB', '256GB', 'Yes', '350046781362990', 1, 1, 75000.00, 'approved', 'purchases/NID/W13wz8n8Bxmiomo30aUJ.jpeg', 'purchases/Memo/3OdYqQTmppu8pI3FDAOW.jpeg', '1', '2026-03-16 06:02:48', '2026-03-16 06:02:57'),
 (46, 20, '20260905', 'Apple', NULL, 51000.00, 'Sky Blue', 'USA', '95', 'Bashundhara City', '8765', '2026-03-16', 'EM Center', '0100000000', '10000000001', 'Pre-Owned', '6GB', '128GB', 'No', '353501490815214', 1, 1, 54000.00, 'approved', 'purchases/NID/1G562jpkBWHlBzMeZyk9.jpeg', 'purchases/Memo/9mcqVVK903qi9gApSO9i.jpeg', '1', '2026-03-16 06:50:31', '2026-03-16 06:53:39'),
 (47, 24, '20260906', 'Apple', NULL, 64000.00, 'Purple', 'Singapore', '88', 'Bashundhara City', '4674', '2026-03-16', 'EM Center', '0100000000', '10000000001', 'Pre-Owned', '6GB', '128GB', 'Yes', '354256831271911', 1, 1, 70000.00, 'approved', 'purchases/NID/Bx49JGfESeBchyWnArKM.jpeg', 'purchases/Memo/sydLXg0jGLd10fFHRbJp.jpeg', '1', '2026-03-16 06:53:03', '2026-03-16 06:54:03'),
@@ -653,7 +653,7 @@ INSERT INTO `stock_manages` (`id`, `purchase_id`, `from_branch`, `to_branch`, `q
 (5, 112, 'Eastern Plaza', 'Bashundhara City', 1, '2026-04-06 00:43:25', '2026-04-06 00:43:25', '2026-04-06 00:43:25'),
 (6, 104, 'Eastern Plaza', 'Bashundhara City', 1, '2026-04-06 00:44:19', '2026-04-06 00:44:19', '2026-04-06 00:44:19'),
 (7, 137, 'Eastern Plaza', 'Bashundhara City', 1, '2026-04-18 00:35:27', '2026-04-18 00:35:27', '2026-04-18 00:35:27'),
-(8, 52, 'Bashundhara City', 'Eastern Mobile', 1, '2026-04-21 23:35:01', '2026-04-21 23:35:01', '2026-04-21 23:35:01');
+(8, 52, 'Bashundhara City', 'Company', 1, '2026-04-21 23:35:01', '2026-04-21 23:35:01', '2026-04-21 23:35:01');
 
 -- --------------------------------------------------------
 

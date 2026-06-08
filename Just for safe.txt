@@ -1,0 +1,131 @@
+
+
+ public function store(Request $request)
+ {
+     $validated = $request-validate([
+         'product_id' = 'requiredexistsproducts,id',
+         'quantity' = 'requiredinteger',
+         'brand' = 'requiredstringmax255',
+         'model' = 'nullablestringmax255',
+         'price' = 'requiredstringmax255',
+         'color' = 'requiredstringmax255',
+         'variant' = 'requiredstringmax255',
+         'ram' = 'requiredstringmax255',
+         'rom' = 'requiredstringmax255',
+         'battery_health' = 'requiredstring',
+         'branch' = 'requiredstringmax255',
+         'memo' = 'requiredstringmax255',
+         'month' = 'requiredstringmax255',
+         'supplier_name' = 'requiredstringmax255',
+         'contact_number' = 'requiredstringmax255',
+         'nid_number' = 'requiredstringmax255',
+         'nid_image' = 'requiredimagemimesjpeg,png,jpgmax2048',
+         'memo_image' = 'nullableimagemimesjpeg,png,jpgmax2048',
+         'status' = 'nullablestringinpending,approved',
+         'imei' = 'required',
+         'condition' = 'required',
+         'box' = 'required',
+     ]);
+
+     $validated['prepared_by'] = auth()-id();
+
+      Generate barcode. If needed you can use it 
+     $lastPurchase = PurchaseorderByRaw('CAST(barcode AS UNSIGNED) DESC')-first();
+     if ($lastPurchase && $lastPurchase-barcode = 20260901) {
+         $validated['barcode'] = $lastPurchase-barcode + 1;
+     } else {
+         $validated['barcode'] = 20260901;
+     }
+
+      Handle images
+     if ($request-hasFile('nid_image')) {
+         $validated['nid_image'] = ImageUploadServicestoreImage($request-file('nid_image'), 'purchasesNID');
+     }
+
+     if ($request-hasFile('memo_image')) {
+         $validated['memo_image'] = ImageUploadServicestoreImage($request-file('memo_image'), 'purchasesMemo');
+     }
+
+     $validated['available_stock'] = $validated['quantity'];
+
+      ✅ Create purchase once, after all data is ready
+     $purchase = Purchasecreate($validated);
+
+      Load relations for email
+     $purchase-load('product');
+
+      Send email notification
+     Mailto('kalpa09k@gmail.com')-send(new PurchaseCreatedMail($purchase));
+
+     return response()-json([
+         'message' = 'Purchase stored successfully!',
+         'purchase' = $purchase
+     ], 200);
+ }
+
+ public function store(Request $request)
+ {
+      1️⃣ Validate incoming request
+     $validated = $request-validate([
+         'product_id' = 'requiredexistsproducts,id',
+         'quantity' = 'requiredinteger',
+         'brand' = 'requiredstringmax255',
+         'model' = 'nullablestringmax255',
+         'price' = 'requiredstringmax255',
+         'color' = 'requiredstringmax255',
+         'variant' = 'requiredstringmax255',
+         'ram' = 'requiredstringmax255',
+         'rom' = 'requiredstringmax255',
+         'battery_health' = 'requiredstring',
+         'branch' = 'requiredstringmax255',
+         'memo' = 'requiredstringmax255',
+         'month' = 'requiredstringmax255',
+         'supplier_name' = 'requiredstringmax255',
+         'contact_number' = 'requiredstringmax255',
+         'nid_number' = 'requiredstringmax255',
+         'nid_image' = 'requiredimagemimesjpeg,png,jpgmax2048',
+         'memo_image' = 'nullableimagemimesjpeg,png,jpgmax2048',
+         'status' = 'nullablestringinpending,approved',
+         'imei' = 'required',
+         'condition' = 'required',
+         'box' = 'required',
+     ]);
+
+      2️⃣ Assign the user who prepared this purchase
+     $validated['prepared_by'] = auth()-id();
+
+      3️⃣ Generate barcode safely
+     $lastPurchase = PurchaseorderByRaw('CAST(barcode AS UNSIGNED) DESC')-first();
+     if ($lastPurchase && $lastPurchase-barcode = 20260901) {
+         $validated['barcode'] = $lastPurchase-barcode + 1;
+     } else {
+         $validated['barcode'] = 20260901;
+     }
+
+      4️⃣ Handle image uploads
+     if ($request-hasFile('nid_image')) {
+         $validated['nid_image'] = ImageUploadServicestoreImage($request-file('nid_image'), 'purchasesNID');
+     }
+
+     if ($request-hasFile('memo_image')) {
+         $validated['memo_image'] = ImageUploadServicestoreImage($request-file('memo_image'), 'purchasesMemo');
+     }
+
+      5️⃣ Set available stock equal to quantity
+     $validated['available_stock'] = $validated['quantity'];
+
+      6️⃣ Create the purchase record
+     $purchase = Purchasecreate($validated);
+
+
+     $purchase-load('product');
+
+  
+    Mailto('kalpa09k@gmail.com')-send(new PurchaseCreatedMail($purchase));
+
+  
+     return response()-json([
+         'message' = 'Purchase stored successfully!',
+         'purchase' = $purchase
+     ], 200);
+ }

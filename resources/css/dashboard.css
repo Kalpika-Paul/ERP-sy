@@ -1,0 +1,77 @@
+/* dashboard.css */
+
+/* Deep Dark Background for the whole section if needed */
+.dashboard-container {
+    min-height: 100vh;
+    color: #e0e0e0;
+}
+
+.dashboard-card {
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100% !important; 
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    position: relative;
+    background: #1a1a2e; /* Dark Base */
+}
+
+/* Hover effects: slight lift and glow */
+.dashboard-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Smart Darker Shed Gradients */
+.card-purchase { 
+    background: linear-gradient(145deg, rgb(33, 142, 210) 0%, #0f3460 100%); 
+}
+.card-sale { 
+    background: linear-gradient(145deg, #39b354 0%, #064e3b 100%); 
+}
+.card-stock { 
+    background: linear-gradient(145deg, #cc773f 0%, #7c2d12 100%); 
+}
+
+/* Icon styling with soft glow */
+.dashboard-icon {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+}
+
+.dashboard-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.dashboard-value {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.divider {
+    color: rgba(255, 255, 255, 0.1);
+    font-weight: 100;
+    font-size: 1.5rem;
+}
+
+.card-link {
+    text-decoration: none !important;
+}
+
+/* Add a subtle shine effect to cards */
+.dashboard-card::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
